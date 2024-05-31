@@ -1,5 +1,6 @@
-import type { Config } from 'tailwindcss'
-
+import type { Config } from 'tailwindcss';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const plugin = require('tailwindcss/plugin');
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,13 +9,45 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        'custom-bg-color': '#09141A',
+        'custom-bg-card-color': '#0E191F',
+        'button-gradient-start': '#62CDCB',
+        'button-gradient-end': '#4599DB',
+        'white-opacity-9': 'rgba(255, 255, 255, 0.09)',
+      },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'custom-gradient':
+          'radial-gradient(121.73% 121.49% at 100% -3.39%, #1F4247 0%, #0D1D23 56.18%, #09141A 100%)',
+        'custom-text-gradient-1':
+          'linear-gradient(74.08deg, #94783E -6.8%, #F3EDA6 16.76%, #F8FAE5 30.5%, #FFE2BE 49.6%, #D5BE88 78.56%, #F8FAE5 89.01%, #D5BE88 100.43%)',
+        'custom-text-gradient-2':
+          'linear-gradient(134.86deg, #ABFFFD 2.64%, #4599DB 102.4%, #AADAFF 102.4%)',
+      },
+      fontSize: {
+        '14px': '14px',
       },
     },
   },
-  plugins: [],
-}
-export default config
+  plugins: [
+    plugin(function ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: Record<string, any>, options?: any) => void;
+    }) {
+      /** @type {Record<string, any>} */
+      const newUtilities = {
+        '.bg-clip-text': {
+          'background-clip': 'text',
+          '-webkit-background-clip': 'text',
+        },
+        '.text-transparent': {
+          color: 'transparent',
+        },
+      };
+
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }),
+  ],
+};
+export default config;

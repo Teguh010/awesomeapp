@@ -3,25 +3,37 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+          to bottom,
+          transparent,
+          rgb(var(--background-end-rgb))
+  )
+  rgb(var(--background-start-rgb));
+}
+
+
+.rti--container {
+  --rti-bg: rgba(255,255,255,0.06) !important;
+  --rti-border: 0px !important;
+  --rti-s: "0.5rem"; /* spacing */
+  --rti-tag: rgba(255,255,255,0.1) !important;
+  --rti-tag-radius: 7px !important;
+  --rti-tag-remove: "#0f0";
+}
+.rti--tag{
+  --rti-radius: 4px !important;
+  font-size: 12px;
+  font-weight: 600;
+  height: 31px !important;
+  padding-left: 8px !important;
+}
+.rti--input{
+  background-color: transparent;
 }
