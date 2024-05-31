@@ -34,8 +34,7 @@ export default function SelectField({
       ...provided,
       backgroundColor: 'rgba(255, 255, 255, 0.09)', // bg-white-opacity-9
       borderRadius: '9px', // rounded-[9px]
-      border: '0px',
-      // padding: '2px', // p-2
+      border: '1px solid #FFFFFF38',
       fontSize: '13px', // text-[13px]
       fontWeight: '500', // font-medium
       color: 'white', // text-white
@@ -50,12 +49,14 @@ export default function SelectField({
     }),
     menu: (provided) => ({
       ...provided,
-      backgroundColor: 'white', // Menu background can remain white
+      backgroundColor: '#243c41',
+      borderRadius: '9px',
+      border: '1px solid #FFFFFF38',
     }),
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: state.isSelected ? 'rgba(0, 0, 0, 0.1)' : 'white', // Highlight selected option
-      color: 'black', // Option text color
+      backgroundColor: state.isSelected ? 'rgba(0, 0, 0, 0.1)' : '#243c41', // Highlight selected option
+      color: 'white', // Option text color
     }),
     singleValue: (provided) => ({
       ...provided,

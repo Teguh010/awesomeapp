@@ -152,11 +152,15 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
             setFieldValue('horoscope', getHoroscope(values.birthday));
             setFieldValue('zodiac', getZodiac(values.birthday));
           }, [setFieldValue, values.birthday]);
+
+           const handleBirthdayFocus = (e) => {
+            e.target.showPicker();
+          };
           return (
             <Form>
               <InputField
                 containerClassName='mt-3'
-                className='h-[36px] w-full p-[18px] text-right'
+                className='h-[36px] w-full p-[18px] text-right text-white'
                 name='name'
                 placeholder='Enter name'
                 label='Display name:'
@@ -175,15 +179,16 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
               />
               <InputField
                 containerClassName='mt-3'
-                className='h-[36px] w-full p-[18px] text-right'
+                className='h-[36px] w-full p-[18px] text-right text-white'
                 name='birthday'
                 placeholder='DD MM YYYY'
                 label='Birthday'
                 type='date'
+                onFocus={handleBirthdayFocus}
               />
               <InputField
                 containerClassName='mt-3'
-                className='h-[36px] w-full p-[18px] text-right'
+                className='h-[36px] w-full p-[18px] text-right text-[#FFFFFF38]'
                 name='horoscope'
                 placeholder='--'
                 label='Horoscope:'
@@ -192,7 +197,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
               />
               <InputField
                 containerClassName='mt-3'
-                className='h-[36px] w-full p-[18px] text-right'
+                className='h-[36px] w-full p-[18px] text-right text-[#FFFFFF38]'
                 name='zodiac'
                 placeholder='--'
                 label='Zodiac:'
@@ -201,7 +206,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
               />
               <InputField
                 containerClassName='mt-3'
-                className='h-[36px] w-full p-[18px] text-right'
+                className='h-[36px] w-full p-[18px] text-right text-white'
                 name='height'
                 placeholder='Add Height'
                 label='Height:'
@@ -209,7 +214,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
               />
               <InputField
                 containerClassName='mt-3'
-                className='h-[36px] w-full p-[18px] text-right'
+                className='h-[36px] w-full p-[18px] text-right text-white'
                 name='weight'
                 placeholder='Add Weight'
                 label='Weight'
