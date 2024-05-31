@@ -56,7 +56,8 @@ export default function SelectField({
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isSelected ? 'rgba(0, 0, 0, 0.1)' : '#243c41', // Highlight selected option
-      color: 'white', // Option text color
+      color: 'white',
+      fontSize: '13px',
     }),
     singleValue: (provided) => ({
       ...provided,
