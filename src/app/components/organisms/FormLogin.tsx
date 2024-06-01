@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import useAuthStore from '@/store/useAuthStore';
 
-import Button from '@/app/components/atoms/Button';
+import MainButton from '@/app/components/atoms/MainButton';
 import Text from '@/app/components/atoms/Text';
 import WithAuth from '@/app/components/hoc/WithAuth';
 import InputField from '@/app/components/molecules/InputField';
@@ -43,7 +43,7 @@ function FormLogin() {
           <Form>
             <InputField
               containerClassName='mt-5'
-              className='h-[51px] w-full p-[18px]'
+              className='h-[51px] w-full border-none p-[18px] text-white'
               name='email_or_username'
               placeholder='Enter Username/Email'
               label={null}
@@ -52,10 +52,10 @@ function FormLogin() {
               containerClassName='mt-5'
               name='password'
               placeholder='Enter Password'
-              className='h-[51px] w-full p-[18px]'
+              className='h-[51px] w-full border-none p-[18px] text-white'
               label={null}
             />
-            <Button
+            <MainButton
               type='submit'
               variant='gradient'
               className='mt-5 h-[51px]'
@@ -63,7 +63,7 @@ function FormLogin() {
               isLoading={isLoading}
             >
               Login
-            </Button>
+            </MainButton>
           </Form>
         )}
       </Formik>
@@ -71,7 +71,7 @@ function FormLogin() {
         <Text as='span' className='text-[13px] font-[500]'>
           No account?
         </Text>{' '}
-        <Link href='/register'>
+        <Link href='/register' className='underline-gradient'>
           <Text
             as='span'
             className='bg-custom-text-gradient-1 bg-clip-text text-[13px] font-[500] text-transparent'

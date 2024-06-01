@@ -12,6 +12,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.09) inset !important;
+
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -40,4 +51,31 @@ body {
 }
 .rti--input{
   background-color: transparent;
+}
+
+/* default button */
+
+.default-button {
+  position: relative;
+}
+
+.default-button:before {
+  content: "";
+  width: calc(100%); 
+  height: calc(100%); 
+  position: absolute;
+  border-radius: 50px;
+  z-index: -1;
+  filter: blur(15px);
+}
+
+.default-button:before {
+  top: 25px;
+  left: 0px;
+  background-image: linear-gradient(rgba(250, 128, 210, 1), transparent);
+}
+
+.default-background {
+  position: relative;
+  z-index: 1;
 }

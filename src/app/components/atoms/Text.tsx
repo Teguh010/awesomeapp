@@ -17,10 +17,6 @@ type TextProps<T extends React.ElementType> = {
   variant?: (typeof TextVariant)[number];
 } & React.ComponentPropsWithoutRef<T>;
 
-type TextComponent = <T extends React.ElementType = 'p'>(
-  props: TextProps<T>
-) => React.ReactElement | null;
-
 const Text: React.ForwardRefExoticComponent<
   React.PropsWithoutRef<TextProps<any>> & React.RefAttributes<unknown>
 > = React.forwardRef(

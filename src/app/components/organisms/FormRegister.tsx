@@ -95,7 +95,7 @@ function FormRegister() {
         <Text as='span' className='text-[13px] font-[500]'>
           Have an account?
         </Text>{' '}
-        <Link href='/'>
+        <Link href='/' className='underline-gradient'>
           <Text
             as='span'
             className='bg-custom-text-gradient-1 bg-clip-text text-[13px] font-[500] text-transparent'

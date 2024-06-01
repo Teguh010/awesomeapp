@@ -23,7 +23,8 @@
     "react-select": "^5.8.0",
     "react-tag-input-component": "^2.0.2",
     "tailwind-merge": "^2.3.0",
-    "zustand": "^4.5.2"
+    "zustand": "^4.5.2",
+    "next-auth": "^4.24.5"
   },
   "devDependencies": {
     "@types/node": "^20",

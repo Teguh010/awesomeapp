@@ -153,7 +153,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
             setFieldValue('zodiac', getZodiac(values.birthday));
           }, [setFieldValue, values.birthday]);
 
-           const handleBirthdayFocus = (e) => {
+           const handleBirthdayFocus = (e : any) => {
             e.target.showPicker();
           };
           return (
