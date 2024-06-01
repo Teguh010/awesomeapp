@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiChevronLeft } from 'react-icons/fi';
 import { TagsInput } from 'react-tag-input-component';
 
@@ -20,6 +20,7 @@ function FormInterest() {
   const login = useAuthStore.useLogin();
   const [interests, setInterests] = useState<string[]>(user?.interests ?? []);
   const localProfile = getLocalProfileFromLocalStorage();
+  const inputRef = React.createRef<HTMLInputElement>();
 
   const handleSave = async () => {
     const res = await updateProfileService(
@@ -46,6 +47,12 @@ function FormInterest() {
     }
   };
 
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [interests]);
+
   return (
     <div className='mx-auto max-w-md'>
       <div className='flex items-center justify-between'>
@@ -65,10 +72,19 @@ function FormInterest() {
         <Text variant='base' className='text-[20px]'>
           What interests you?
         </Text>
-        <div className='mt-8'>
-          <div className='relative z-10'>
-            <TagsInput value={interests} onChange={setInterests} />
-          </div>
+        <div className='mt-8 text-[14px]'>
+          <TagsInput
+            value={interests}
+            onChange={setInterests}
+            name="tags"
+            placeHolder="Add interest"
+          />
+          {/* Hidden input to maintain focus */}
+          <input
+            type="text"
+            ref={inputRef}
+            className="hidden"
+          />
         </div>
       </div>
     </div>

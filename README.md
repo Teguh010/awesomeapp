@@ -48,4 +48,4 @@ Create Mobile Webapp in Nextjs - Open the figma link below:
 
 
 ## Deployment
-Open [https://youapp-fe.vercel.app](https://youapp-fe.vercel.app) with your browser to see the result.
+Open [https://awesomeapp-rose.vercel.app](https://awesomeapp-rose.vercel.app/register) with your browser to see the result.
