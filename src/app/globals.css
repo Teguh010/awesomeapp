@@ -8,8 +8,8 @@
   --background-end-rgb: 0, 0, 0;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
+input[type='date']::-webkit-calendar-picker-indicator {
+  display: none !important;
 }
 
 input:-webkit-autofill,
@@ -17,40 +17,38 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-background-clip: text;
-    -webkit-text-fill-color: #ffffff;
-    transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #ffffff;
+  transition: background-color 5000s ease-in-out 0s;
   -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.09) inset !important;
-
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-          to bottom,
-          transparent,
-          rgb(var(--background-end-rgb))
-  )
-  rgb(var(--background-start-rgb));
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
-
 
 .rti--container {
-  --rti-bg: rgba(255,255,255,0.06) !important;
+  --rti-bg: rgba(255, 255, 255, 0.06) !important;
   --rti-border: 0px !important;
-  --rti-s: "0.5rem"; /* spacing */
-  --rti-tag: rgba(255,255,255,0.1) !important;
+  --rti-s: '0.5rem'; /* spacing */
+  --rti-tag: rgba(255, 255, 255, 0.1) !important;
   --rti-tag-radius: 7px !important;
-  --rti-tag-remove: "#0f0";
+  --rti-tag-remove: '#0f0';
   min-height: 50px;
 }
-.rti--tag{
+.rti--tag {
   --rti-radius: 4px !important;
   font-size: 12px;
   font-weight: 600;
   height: 31px !important;
   padding-left: 8px !important;
 }
-.rti--input{
+.rti--input {
   background-color: transparent;
 }
 
@@ -61,9 +59,9 @@ body {
 }
 
 .default-button:before {
-  content: "";
-  width: calc(100%); 
-  height: calc(100%); 
+  content: '';
+  width: calc(100%);
+  height: calc(100%);
   position: absolute;
   border-radius: 50px;
   z-index: -1;
