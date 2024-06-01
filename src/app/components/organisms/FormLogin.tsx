@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import useAuthStore from '@/store/useAuthStore';
 
-import MainButton from '@/app/components/atoms/MainButton';
+import Button from '@/app/components/atoms/Button';
 import Text from '@/app/components/atoms/Text';
 import WithAuth from '@/app/components/hoc/WithAuth';
 import InputField from '@/app/components/molecules/InputField';
@@ -55,7 +55,7 @@ function FormLogin() {
               className='h-[51px] w-full border-none p-[18px] text-white'
               label={null}
             />
-            <MainButton
+            <Button
               type='submit'
               variant='gradient'
               className='mt-5 h-[51px]'
@@ -63,7 +63,7 @@ function FormLogin() {
               isLoading={isLoading}
             >
               Login
-            </MainButton>
+            </Button>
           </Form>
         )}
       </Formik>
