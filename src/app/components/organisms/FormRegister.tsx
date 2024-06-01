@@ -46,7 +46,7 @@ function FormRegister() {
           <Form>
             <InputField
               containerClassName='mt-5'
-              className='h-[51px] w-full p-[18px]'
+              className='h-[51px] w-full p-[18px] border-none'
               name='email'
               placeholder='Create Email'
               label={null}
@@ -54,7 +54,7 @@ function FormRegister() {
             />
             <InputField
               containerClassName='mt-5'
-              className='h-[51px] w-full p-[18px]'
+              className='h-[51px] w-full p-[18px] border-none'
               name='username'
               placeholder='Create Username'
               label={null}
@@ -64,14 +64,14 @@ function FormRegister() {
               containerClassName='mt-5'
               name='password'
               placeholder='Create Password'
-              className='h-[51px] w-full p-[18px]'
+              className='h-[51px] w-full p-[18px] border-none'
               label={null}
             />
             <PasswordInputField
               containerClassName='mt-5'
               name='confirm_password'
               placeholder='Confirm Password'
-              className='h-[51px] w-full p-[18px]'
+              className='h-[51px] w-full p-[18px] border-none'
               label={null}
             />
             <Button
