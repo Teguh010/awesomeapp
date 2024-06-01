@@ -72,12 +72,12 @@ function FormInterest() {
         <Text variant='base' className='text-[20px]'>
           What interests you?
         </Text>
-        <div className='mt-8 text-[14px]'>
+        <div className='mt-8 text-[12px]'>
           <TagsInput
             value={interests}
             onChange={setInterests}
             name="tags"
-            placeHolder="Add interest"
+            placeHolder="type here"
           />
           {/* Hidden input to maintain focus */}
           <input
