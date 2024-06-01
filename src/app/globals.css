@@ -8,60 +8,22 @@
   --background-end-rgb: 0, 0, 0;
 }
 
-/* input[type="date"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-} */
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-    position: absolute;
+.birthday-section {
+  position: relative;
 }
 
-input[type="date"]::-webkit-clear-button {
-    display: none;
+.date-popup {
+  position: absolute;
+  top: -18px; 
+  left: 20%;
+ opacity: 0;
 }
 
-input[type="date"]::-webkit-inner-spin-button {
-    display: none;
+.birthday-section:focus-within .date-popup,
+.birthday-section:hover .date-popup {
+  display: block;
 }
 
-/* input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
-   color: rgba(0, 0, 0, 0);
-    opacity: 1;
-    display: block;
-    background: url(https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png) no-repeat;
-    width: 20px;
-    height: 20px;
-    border-width: thin;
-} */
-
-/* input[type='date']::-webkit-calendar-picker-indicator {
-  display: none !important;
-
-
-}
-
-
-input::-webkit-calendar-picker-indicator {
-    display: none !important;
-}
-
-
-input[type='date']::-webkit-inner-spin-button,
-input[type='date']::-webkit-clear-button {
-  display: none  !important;
-}
-
-input[type='date']::-moz-clear {
-  display: none  !important;
-}
-
-input[type='date']::-ms-clear {
-  display: none  !important;
-}  */
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

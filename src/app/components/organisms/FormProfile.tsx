@@ -44,6 +44,8 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
     }
   };
   const profileInputRef = useRef<HTMLInputElement>(null);
+  const birthdayInputRef = useRef<HTMLInputElement>(null);
+
   return (
     <>
       <div className='mt-3 flex items-center gap-3'>
@@ -147,23 +149,15 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
         }}
       >
         {({ values, setFieldValue }) => {
-          // eslint-disable-next-line react-hooks/rules-of-hooks
           useEffect(() => {
             setFieldValue('horoscope', getHoroscope(values.birthday));
             setFieldValue('zodiac', getZodiac(values.birthday));
           }, [setFieldValue, values.birthday]);
 
-          //  const handleBirthdayFocus = (e : any) => {
-          //   e.target.showPicker();
-          // };
-
-            const handleBirthdayFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-            e.target.blur(); // Hilangkan fokus agar tidak muncul dropdown
-            e.target.type = 'text'; // Ubah jenis input menjadi teks sementara
-            e.target.type = 'date'; // Ubah kembali ke tipe date untuk membuka picker
-            e.target.focus(); // Fokuskan kembali ke input
-            e.target.showPicker();
+          const handleBirthdaySectionClick = () => {
+            birthdayInputRef.current?.showPicker();
           };
+
           return (
             <Form>
               <InputField
@@ -185,15 +179,31 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                   { label: 'Female', value: 'Female' },
                 ]}
               />
-              <InputField
-                containerClassName='mt-3'
-                className='h-[36px] w-full p-[18px] text-right text-white'
-                name='birthday'
-                placeholder='DD MM YYYY'
-                label='Birthday'
-                type='date'
-                onFocus={handleBirthdayFocus}
-              />
+              {/* Hide the input field */}
+              <div
+                className='birthday-section mt-3   flex items-center justify-between'
+                onClick={handleBirthdaySectionClick}
+              >
+                <div className='block  w-1/3'>
+                  <Text as='label' variant='label' className='mr-1'>
+                    Birthday
+                  </Text>
+                </div>
+
+                <div className='bg-white-opacity-9 h-[36px] w-full flex-1 rounded-[9px]  border border-[#FFFFFF38]  p-2 px-4 text-right text-[13px]  font-medium text-white placeholder-[#FFFFFF38]'>
+                  {values.birthday || 'DD MM YYYY'}
+                </div>
+                <InputField
+                  ref={birthdayInputRef}
+                  containerClassName='date-popup'
+                  className='h-[36px] w-full p-[18px] text-right text-white'
+                  name='birthday'
+                  placeholder='DD MM YYYY'
+                  label='Birthday'
+                  type='date'
+                />
+              </div>
+
               <InputField
                 containerClassName='mt-3'
                 className='h-[36px] w-full p-[18px] text-right text-[#FFFFFF38]'
