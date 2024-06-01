@@ -25,7 +25,8 @@ export default function Button({
       {...rest}
       type={type}
       className={cn(
-        'default-button relative w-full rounded-[8px] py-2 text-[16px] font-[700] text-white focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-500',
+        'relative w-full rounded-[8px] py-2 text-[16px] font-[700] text-white focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-500',
+        !disabled && 'default-button',
         variant == 'gradient' &&
           'from-button-gradient-start to-button-gradient-end bg-gradient-to-r',
         className
