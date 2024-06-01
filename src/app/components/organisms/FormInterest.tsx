@@ -77,7 +77,7 @@ function FormInterest() {
             value={interests}
             onChange={setInterests}
             name="tags"
-            placeHolder="Type here"
+            placeHolder={interests.length >= 3 ? 'Type Here' : ''}
           />
           {/* Hidden input to maintain focus */}
           <input
