@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { FiPlus } from 'react-icons/fi';
-import { format, parseISO } from 'date-fns';
 
 import { getLocalProfileFromLocalStorage } from '@/lib/helpers';
 import { getHoroscope } from '@/lib/horoscope';
@@ -21,7 +20,6 @@ import { updateProfileService } from '@/services/update-profile-service';
 type FormProfileProps = {
   handleBack(): void;
 };
-
 export default function FormProfile({ handleBack }: FormProfileProps) {
   const login = useAuthStore.useLogin();
   const user = useAuthStore.useUser();
@@ -45,9 +43,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
       reader.readAsDataURL(e.target.files[0]);
     }
   };
-
   const profileInputRef = useRef<HTMLInputElement>(null);
-
   return (
     <>
       <div className='mt-3 flex items-center gap-3'>
@@ -102,55 +98,68 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
         }}
         onSubmit={async (values) => {
           if (
-            values.name === '' ||
-            values.birthday === '' ||
-            values.height === '' ||
-            values.weight === ''
+            values.name == '' ||
+            values.birthday == '' ||
+            values.height == '' ||
+            values.weight == ''
           ) {
             toast.error('Please complete your profile');
-            return;
           }
-
-          const isNewUser = user?.name == undefined;
-          const saveProfile = isNewUser
-            ? createProfileService
-            : updateProfileService;
-
-          const res = await saveProfile(
-            values.name,
-            values.gender,
-            values.birthday,
-            values.horoscope,
-            values.zodiac,
-            values.weight,
-            values.height,
-            user?.interests ?? [],
-            image ?? undefined
-          );
-
-          if (res.data.isSuccess) {
-            handleBack();
-            if (user) {
-              const profile = await getProfileService();
-              login({ ...user, ...profile.data.data });
+          if (user?.name == undefined) {
+            const res = await createProfileService(
+              values.name,
+              values.gender,
+              values.birthday,
+              values.horoscope,
+              values.zodiac,
+              values.weight,
+              values.height,
+              user?.interests ?? [],
+              image ?? undefined
+            );
+            if (res.data.isSuccess) {
+              handleBack();
+              if (user) {
+                const profile = await getProfileService();
+                login({ ...user, ...profile.data.data });
+              }
+            }
+          } else {
+            const res = await updateProfileService(
+              values.name,
+              values.gender,
+              values.birthday,
+              values.horoscope,
+              values.zodiac,
+              values.weight,
+              values.height,
+              user?.interests ?? [],
+              image ?? undefined
+            );
+            if (res.data.isSuccess) {
+              handleBack();
+              if (user) {
+                const profile = await getProfileService();
+                login({ ...user, ...profile.data.data });
+              }
             }
           }
         }}
       >
         {({ values, setFieldValue }) => {
+          // eslint-disable-next-line react-hooks/rules-of-hooks
           useEffect(() => {
             setFieldValue('horoscope', getHoroscope(values.birthday));
             setFieldValue('zodiac', getZodiac(values.birthday));
           }, [setFieldValue, values.birthday]);
 
-          const handleBirthdayChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            setFieldValue('birthday', e.target.value);
+          //  const handleBirthdayFocus = (e : any) => {
+          //   e.target.showPicker();
+          // };
+
+            const handleBirthdayFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+            e.target.showPicker();
           };
-
-          const displayDate = values.birthday
-            ? format(parseISO(values.birthday), 'dd MMM yyyy')
-            : '';
-
           return (
             <Form>
               <InputField
@@ -172,30 +181,15 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                   { label: 'Female', value: 'Female' },
                 ]}
               />
-              <div className='mt-3'>
-                <label className='block text-sm font-medium text-gray-700'>
-                  Birthday
-                </label>
-                <div className='relative mt-1'>
-                  <input
-                    type='text'
-                    className='h-[36px] w-full p-[18px] text-right text-white'
-                    value={displayDate}
-                    readOnly
-                    onFocus={(e) => {
-                      e.target.blur();
-                      const input = document.createElement('input');
-                      input.type = 'date';
-                      input.style.position = 'absolute';
-                      input.style.opacity = '0';
-                      input.onchange = handleBirthdayChange;
-                      document.body.appendChild(input);
-                      input.click();
-                      document.body.removeChild(input);
-                    }}
-                  />
-                </div>
-              </div>
+              <InputField
+                containerClassName='mt-3'
+                className='h-[36px] w-full p-[18px] text-right text-white'
+                name='birthday'
+                placeholder='DD MM YYYY'
+                label='Birthday'
+                type='date'
+                onFocus={handleBirthdayFocus}
+              />
               <InputField
                 containerClassName='mt-3'
                 className='h-[36px] w-full p-[18px] text-right text-[#FFFFFF38]'
@@ -230,16 +224,17 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 label='Weight'
                 type='text'
               />
+
               <Text
                 as='button'
                 type='submit'
                 className='absolute right-8 top-8 text-[13px] font-[500] disabled:cursor-not-allowed'
                 variant='gradient-yellow'
                 disabled={
-                  values.name === '' ||
-                  values.birthday === '' ||
-                  values.height === '' ||
-                  values.weight === ''
+                  values.name == '' ||
+                  values.birthday == '' ||
+                  values.height == '' ||
+                  values.weight == ''
                 }
               >
                 Save & Update
