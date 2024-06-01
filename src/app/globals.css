@@ -12,6 +12,19 @@ input[type='date']::-webkit-calendar-picker-indicator {
   display: none !important;
 }
 
+input[type='date']::-webkit-inner-spin-button,
+input[type='date']::-webkit-clear-button {
+  display: none;
+}
+
+input[type='date']::-moz-clear {
+  display: none;
+}
+
+input[type='date']::-ms-clear {
+  display: none;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
