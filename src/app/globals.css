@@ -41,6 +41,7 @@ body {
   --rti-tag: rgba(255,255,255,0.1) !important;
   --rti-tag-radius: 7px !important;
   --rti-tag-remove: "#0f0";
+  min-height: 50px;
 }
 .rti--tag{
   --rti-radius: 4px !important;
