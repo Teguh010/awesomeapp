@@ -153,8 +153,11 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
             setFieldValue('zodiac', getZodiac(values.birthday));
           }, [setFieldValue, values.birthday]);
 
-           const handleBirthdayFocus = (e : any) => {
-            e.target.showPicker();
+          const handleBirthdayFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+            e.target.blur(); // Hilangkan fokus agar tidak muncul dropdown
+            e.target.type = 'text'; // Ubah jenis input menjadi teks sementara
+            e.target.type = 'date'; // Ubah kembali ke tipe date untuk membuka picker
+            e.target.focus(); // Fokuskan kembali ke input
           };
           return (
             <Form>
