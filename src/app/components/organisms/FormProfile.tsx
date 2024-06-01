@@ -48,7 +48,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
 
   return (
     <>
-      <div className='mt-3 flex items-center gap-3 cursor-pointer'>
+      <div className='mt-8 py-3 flex items-center gap-3 cursor-pointer'>
         <div className='relative h-[57px] w-[57px] overflow-hidden rounded-[17px] bg-gray-800'>
           {image ? (
             <Image
