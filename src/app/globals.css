@@ -8,25 +8,16 @@
   --background-end-rgb: 0, 0, 0;
 }
 
-.unstyled {
-    -webkit-appearance: none;
-}
-.unstyled::-webkit-inner-spin-button,
-.unstyled::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
-}
+
 
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
+   position: absolute;
 }
 
-input[type='date']::-webkit-calendar-picker-indicator {
+/* input[type='date']::-webkit-calendar-picker-indicator {
   display: none !important;
-  /* position: absolute;
-  opacity: 0; */
+
 
 }
 
@@ -47,7 +38,7 @@ input[type='date']::-moz-clear {
 
 input[type='date']::-ms-clear {
   display: none  !important;
-} 
+}  */
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
