@@ -2,14 +2,11 @@ import { Form, Formik } from 'formik';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { FiPlus } from 'react-icons/fi';
 
 import { getLocalProfileFromLocalStorage } from '@/lib/helpers';
 import { getHoroscope } from '@/lib/horoscope';
 import { getZodiac } from '@/lib/zodiac';
-import {
-  customFormatDate,
-} from '@/lib/helpers';
+import { customFormatDate } from '@/lib/helpers';
 
 import useAuthStore from '@/store/useAuthStore';
 
@@ -51,7 +48,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
 
   return (
     <>
-      <div className='mt-3 flex items-center gap-3'>
+      <div className='mt-3 flex items-center gap-3 cursor-pointer'>
         <div className='relative h-[57px] w-[57px] overflow-hidden rounded-[17px] bg-gray-800'>
           {image ? (
             <Image
@@ -62,8 +59,14 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
               className='rounded-full'
             />
           ) : (
-            <div className='flex h-full items-center justify-center text-gray-400'>
-              <FiPlus className='text-[18px]' />
+            <div className='flex h-full items-center justify-center '>
+              <Text
+                as='icon'
+                className=' pb-2 text-[50px] font-[200]'
+                variant='gradient-yellow'
+              >
+                +
+              </Text>
             </div>
           )}
           <input
@@ -152,7 +155,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
         }}
       >
         {({ values, setFieldValue }) => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
+          // eslint-disable-next-line react-hooks/rules-of-hooks
           useEffect(() => {
             setFieldValue('horoscope', getHoroscope(values.birthday));
             setFieldValue('zodiac', getZodiac(values.birthday));
