@@ -9,9 +9,13 @@
 }
 
 input[type='date']::-webkit-calendar-picker-indicator {
-  display: none !important;
+  /* display: none !important; */
+  position: absolute;
+  opacity: 0;
 
 }
+/* 
+
 
 input::-webkit-calendar-picker-indicator {
     display: none !important;
@@ -30,7 +34,7 @@ input[type='date']::-moz-clear {
 
 input[type='date']::-ms-clear {
   display: none  !important;
-}
+} */
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
