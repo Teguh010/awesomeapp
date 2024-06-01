@@ -14,15 +14,15 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
 input[type='date']::-webkit-inner-spin-button,
 input[type='date']::-webkit-clear-button {
-  display: !important;
+  display:none  !important;
 }
 
 input[type='date']::-moz-clear {
-  display: !important;
+  display:none  !important;
 }
 
 input[type='date']::-ms-clear {
-  display: !important;
+  display:none  !important;
 }
 
 input:-webkit-autofill,
