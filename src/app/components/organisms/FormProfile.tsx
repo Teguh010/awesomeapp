@@ -7,6 +7,9 @@ import { FiPlus } from 'react-icons/fi';
 import { getLocalProfileFromLocalStorage } from '@/lib/helpers';
 import { getHoroscope } from '@/lib/horoscope';
 import { getZodiac } from '@/lib/zodiac';
+import {
+  customFormatDate,
+} from '@/lib/helpers';
 
 import useAuthStore from '@/store/useAuthStore';
 
@@ -192,7 +195,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 </div>
 
                 <div className='bg-white-opacity-9 h-[36px] w-full flex-1 rounded-[9px]  border border-[#FFFFFF38]  p-2 px-4 text-right text-[13px]  font-medium text-white placeholder-[#FFFFFF38]'>
-                  {values.birthday || 'DD MM YYYY'}
+                  {customFormatDate(values.birthday) || 'DD MM YYYY'}
                 </div>
                 <InputField
                   ref={birthdayInputRef}

@@ -15,8 +15,9 @@
 .date-popup {
   position: absolute;
   top: -18px; 
-  left: 20%;
+  right: 0%;
  opacity: 0;
+ width: 60%;
 }
 
 .birthday-section:focus-within .date-popup,
