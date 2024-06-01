@@ -5,9 +5,7 @@ import { FiChevronLeft } from 'react-icons/fi';
 import { TagsInput } from 'react-tag-input-component';
 
 import { getLocalProfileFromLocalStorage } from '@/lib/helpers';
-
 import useAuthStore from '@/store/useAuthStore';
-
 import Text from '@/app/components/atoms/Text';
 import WithAuth from '@/app/components/hoc/WithAuth';
 import ButtonLink from '@/app/components/molecules/ButtonLink';
@@ -15,12 +13,14 @@ import { getProfileService } from '@/services/get-profile-service';
 import { updateProfileService } from '@/services/update-profile-service';
 
 export default WithAuth(FormInterest, 'required');
+
 function FormInterest() {
   const router = useRouter();
   const user = useAuthStore.useUser();
   const login = useAuthStore.useLogin();
   const [interests, setInterests] = useState<string[]>(user?.interests ?? []);
   const localProfile = getLocalProfileFromLocalStorage();
+
   const handleSave = async () => {
     const res = await updateProfileService(
       user?.name ?? '',
@@ -45,6 +45,7 @@ function FormInterest() {
       router.push('/home');
     }
   };
+
   return (
     <div className='mx-auto max-w-md'>
       <div className='flex items-center justify-between'>
@@ -62,10 +63,12 @@ function FormInterest() {
           Tell everyone about yourself
         </Text>
         <Text variant='base' className='text-[20px]'>
-          What interest you?
+          What interests you?
         </Text>
         <div className='mt-8'>
-          <TagsInput value={interests} onChange={setInterests} />
+          <div className='relative z-10'>
+            <TagsInput value={interests} onChange={setInterests} />
+          </div>
         </div>
       </div>
     </div>

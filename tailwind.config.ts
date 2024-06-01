@@ -37,6 +37,7 @@ const config: Config = {
       },
        zIndex: {
         '99': '99',
+        '10': '10',
       }
     },
   },
