@@ -10,7 +10,14 @@
 
 input[type='date']::-webkit-calendar-picker-indicator {
   display: none !important;
+
 }
+
+input::-webkit-calendar-picker-indicator {
+    display: none !important;
+}
+
+::-webkit-calendar-picker-indicator
 
 input[type='date']::-webkit-inner-spin-button,
 input[type='date']::-webkit-clear-button {
