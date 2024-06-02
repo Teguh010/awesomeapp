@@ -39,7 +39,7 @@ export const createProfileService = async (
 
   return await localAxios
     .post(
-      '/api/createProfile',
+      '/createProfile',
       {
         name,
         birthday,

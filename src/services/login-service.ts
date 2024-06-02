@@ -9,7 +9,7 @@ export const loginService = async (
   password: string
 ) => {
   return await localAxios
-    .post('/api/login', {
+    .post('/login', {
       email: isEmail(email_or_username) ? email_or_username : '',
       username: isEmail(email_or_username) ? '' : email_or_username,
       password: password,

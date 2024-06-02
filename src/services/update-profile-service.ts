@@ -38,7 +38,7 @@ export const updateProfileService = async (
   }
   return await localAxios
     .put(
-      '/api/updateProfile',
+      '/updateProfile',
       {
         name,
         birthday,

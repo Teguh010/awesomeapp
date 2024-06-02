@@ -8,7 +8,7 @@ export const registerService = async (
   password: string
 ) => {
   return await localAxios
-    .post('/api/register', {
+    .post('/register', {
       email: email,
       username: username,
       password: password,

@@ -1,5 +1,5 @@
 'use client';
-import { FiChevronLeft } from 'react-icons/fi';
+import { MdArrowBackIosNew } from 'react-icons/md';
 import { useState } from 'react';
 
 import useAuthStore from '@/store/useAuthStore';
@@ -22,7 +22,7 @@ function UserInfo() {
   return (
     <div className='mx-auto max-w-md'>
       <div className='flex items-center justify-between'>
-        <ButtonLink href='#' leftIcon={FiChevronLeft} text='Back' />
+        <ButtonLink href='#' leftIcon={MdArrowBackIosNew} text='Back' />
         <div className='absolute left-1/2 -translate-x-1/2 transform text-center'>
           <Text as='h1' className='text-center'>{`@${user?.username}`}</Text>
         </div>

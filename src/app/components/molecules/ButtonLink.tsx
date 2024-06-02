@@ -21,11 +21,11 @@ export default function ButtonLink({
       <Link href={href} {...rest}>
         <button
           className={cn(
-            'my-4 flex items-center justify-center text-white',
+            'my-4 flex items-center justify-center text-white text-[12] font-[600]',
             className
           )}
         >
-          {LeftIcon && <LeftIcon />}
+          {LeftIcon && <LeftIcon className='text-[28px] pr-1' />}
           {text}
         </button>
       </Link>

@@ -1,4 +1,4 @@
-import { CiEdit } from 'react-icons/ci';
+import { PiPencilSimpleLine } from 'react-icons/pi';
 
 import useAuthStore from '@/store/useAuthStore';
 
@@ -10,9 +10,9 @@ export default function Interest() {
   const user = useAuthStore.useUser();
   return (
     <>
-      <Card cardTitle='Interest' className='mt-5 p-8'>
+      <Card cardTitle='Interest' className='mt-5 p-6'>
         <div className='absolute right-5 top-8 h-[18px] w-[18px]'>
-          <ButtonLink href='/interest' leftIcon={CiEdit} className='my-0' />
+          <ButtonLink href='/interest' leftIcon={PiPencilSimpleLine} className='my-0' />
         </div>
         {user?.interests.length == 0 && (
           <Text variant='secondary' className='mt-5'>

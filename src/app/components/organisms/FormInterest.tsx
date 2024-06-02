@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
-import { FiChevronLeft } from 'react-icons/fi';
+import { MdArrowBackIosNew } from 'react-icons/md';
 import { TagsInput } from 'react-tag-input-component';
 
 import { getLocalProfileFromLocalStorage } from '@/lib/helpers';
@@ -56,7 +56,7 @@ function FormInterest() {
   return (
     <div className='mx-auto max-w-md'>
       <div className='flex items-center justify-between'>
-        <ButtonLink href='/home' leftIcon={FiChevronLeft} text='Back' />
+        <ButtonLink href='/home' leftIcon={MdArrowBackIosNew} text='Back'  />
         <Text
           as='button'
           className='bg-custom-text-gradient-2 bg-clip-text text-transparent'

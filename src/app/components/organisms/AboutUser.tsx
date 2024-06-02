@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CiEdit } from 'react-icons/ci';
+import { PiPencilSimpleLine } from 'react-icons/pi';
 
 import {
   getLocalProfileFromLocalStorage,
@@ -30,7 +30,7 @@ export default function AboutUser() {
             <div className='absolute right-5 top-8 h-[18px] w-[18px]'>
               <ButtonLink
                 href='#'
-                leftIcon={CiEdit}
+                leftIcon={PiPencilSimpleLine}
                 className='my-0'
                 onClick={() => setAboutState('form')}
               />
