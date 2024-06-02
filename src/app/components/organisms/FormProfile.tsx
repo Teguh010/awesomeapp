@@ -172,13 +172,13 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 className='h-[36px] w-full p-[18px] text-right text-white'
                 name='name'
                 placeholder='Enter name'
-                label='Name:'
+                label='Display name:'
                 type='text'
               />
               <SelectField
                 containerClassName='mt-3'
                 name='gender'
-                label='Gender'
+                label='Gender:'
                 className='h-[36px] w-full text-right'
                 placeholder='Select Gender'
                 options={[
@@ -193,7 +193,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
               >
                 <div className='block  w-1/3'>
                   <Text as='label' variant='label' className='mr-1'>
-                    Birthday
+                    Birthday:
                   </Text>
                 </div>
 
@@ -206,7 +206,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                   className='h-[36px] w-full p-[18px] text-right text-white'
                   name='birthday'
                   placeholder='DD MM YYYY'
-                  label='Birthday'
+                  label='Birthday:'
                   type='date'
                 />
               </div>
@@ -242,7 +242,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 className='h-[36px] w-full p-[18px] text-right text-white'
                 name='weight'
                 placeholder='Add Weight'
-                label='Weight'
+                label='Weight:'
                 type='text'
               />
 

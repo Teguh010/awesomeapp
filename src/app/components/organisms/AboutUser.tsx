@@ -24,7 +24,7 @@ export default function AboutUser() {
 
   return (
     <>
-      <Card cardTitle='About' className='mt-5 p-8'>
+      <Card cardTitle='About' className='mt-5 p-6'>
         {aboutState == 'about' && (
           <>
             <div className='absolute right-5 top-8 h-[18px] w-[18px]'>
