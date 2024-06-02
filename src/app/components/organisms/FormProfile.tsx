@@ -172,7 +172,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 className='h-[36px] w-full p-[18px] text-right text-white'
                 name='name'
                 placeholder='Enter name'
-                label='Display name:'
+                label='Name:'
                 type='text'
               />
               <SelectField
