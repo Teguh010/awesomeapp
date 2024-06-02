@@ -1,10 +1,9 @@
-import { PiPencilSimpleLine } from 'react-icons/pi';
+import Link from 'next/link';
 
 import useAuthStore from '@/store/useAuthStore';
-
 import Text from '@/app/components/atoms/Text';
-import ButtonLink from '@/app/components/molecules/ButtonLink';
 import Card from '@/app/components/molecules/Card';
+import EditIcon from '@/public/edit.svg';
 
 export default function Interest() {
   const user = useAuthStore.useUser();
@@ -12,10 +11,16 @@ export default function Interest() {
     <>
       <Card cardTitle='Interest' className='mt-5 p-6'>
         <div className='absolute right-5 top-6 h-[18px] w-[18px]'>
-          <ButtonLink href='/interest' leftIcon={PiPencilSimpleLine} className='my-0' />
+          <Link href='/interest'>
+            <EditIcon
+              width='24'
+              height='24'
+              className='cursor-pointer text-white'
+            />
+          </Link>
         </div>
         {user?.interests.length == 0 && (
-          <Text variant='secondary' className='mt-5'>
+          <Text variant='secondary' className='mt-8'>
             Add in your interest to find a better match
           </Text>
         )}

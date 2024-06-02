@@ -61,7 +61,7 @@ function FormInterest() {
           leftIcon={MdArrowBackIosNew}
           text='Back'
           labelSize={14}
-          iconSize={25}
+          iconSize={22}
         />
         <Text
           as='button'
