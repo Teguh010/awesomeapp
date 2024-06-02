@@ -56,7 +56,13 @@ function FormInterest() {
   return (
     <div className='mx-auto max-w-md'>
       <div className='flex items-center justify-between'>
-        <ButtonLink href='/home' leftIcon={MdArrowBackIosNew} text='Back'  />
+         <ButtonLink
+          href='/home'
+          leftIcon={MdArrowBackIosNew}
+          text='Back'
+          labelSize={14}
+          iconSize={25}
+        />
         <Text
           as='button'
           className='bg-custom-text-gradient-2 bg-clip-text text-transparent'

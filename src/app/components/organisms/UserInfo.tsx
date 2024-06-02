@@ -22,7 +22,13 @@ function UserInfo() {
   return (
     <div className='mx-auto max-w-md'>
       <div className='flex items-center justify-between'>
-        <ButtonLink href='#' leftIcon={MdArrowBackIosNew} text='Back' />
+        <ButtonLink
+          href='#'
+          leftIcon={MdArrowBackIosNew}
+          text='Back'
+          labelSize={14}
+          iconSize={25}
+        />
         <div className='absolute left-1/2 -translate-x-1/2 transform text-center'>
           <Text as='h1' className='text-center'>{`@${user?.username}`}</Text>
         </div>

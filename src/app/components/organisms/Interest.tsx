@@ -11,7 +11,7 @@ export default function Interest() {
   return (
     <>
       <Card cardTitle='Interest' className='mt-5 p-6'>
-        <div className='absolute right-5 top-8 h-[18px] w-[18px]'>
+        <div className='absolute right-5 top-6 h-[18px] w-[18px]'>
           <ButtonLink href='/interest' leftIcon={PiPencilSimpleLine} className='my-0' />
         </div>
         {user?.interests.length == 0 && (

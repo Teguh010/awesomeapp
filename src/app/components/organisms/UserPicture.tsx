@@ -12,26 +12,26 @@ import aquarius from '@/assets/aquarius.png';
 import aries from '@/assets/aries.png';
 import cancer from '@/assets/cancer.png';
 import capricorn from '@/assets/capricorn.png';
-import dog from "@/assets/dog.png";
-import dragon from "@/assets/dragon.png";
+import dog from '@/assets/dog.png';
+import dragon from '@/assets/dragon.png';
 import gemini from '@/assets/gemini.png';
-import goat from "@/assets/goat.png";
-import horse from "@/assets/horse.png";
+import goat from '@/assets/goat.png';
+import horse from '@/assets/horse.png';
 import leo from '@/assets/leo.png';
 import libra from '@/assets/libra.png';
 
-import monkey from "@/assets/monkey.png";
-import ox from "@/assets/ox.png";
-import pig from "@/assets/pig.png";
+import monkey from '@/assets/monkey.png';
+import ox from '@/assets/ox.png';
+import pig from '@/assets/pig.png';
 import pisces from '@/assets/pisces.png';
-import rabbit from "@/assets/rabbit.png";
-import rat from "@/assets/rat.png";
-import rooster from "@/assets/rooster.png";
+import rabbit from '@/assets/rabbit.png';
+import rat from '@/assets/rat.png';
+import rooster from '@/assets/rooster.png';
 import sagittarius from '@/assets/sagittarius.png';
 import scorpius from '@/assets/scorpius.png';
-import snake from "@/assets/snake.png";
+import snake from '@/assets/snake.png';
 import taurus from '@/assets/taurus.png';
-import tiger from "@/assets/tiger.png";
+import tiger from '@/assets/tiger.png';
 import virgo from '@/assets/virgo.png';
 
 // ---------------------------------------------
@@ -50,7 +50,6 @@ interface HoroscopeImageMap {
   Sagittarius: StaticImageData;
   Capricorn: StaticImageData;
 }
-
 
 interface ZodiacImageMap {
   Rabbit: StaticImageData;
@@ -118,47 +117,23 @@ export default function UserPicture() {
   const horoscopeKey = user?.horoscope as keyof HoroscopeImageMap;
   const horoscopeImage = horoscopeImageMap[horoscopeKey] || null;
 
+  const zodiacImageMap: ZodiacImageMap = {
+    Rabbit: rabbit,
+    Tiger: tiger,
+    Ox: ox,
+    Rat: rat,
+    Pig: pig,
+    Dog: dog,
+    Rooster: rooster,
+    Monkey: monkey,
+    Goat: goat,
+    Horse: horse,
+    Snake: snake,
+    Dragon: dragon,
+  };
 
-   const zodiacImageMap: ZodiacImageMap = {
-      Rabbit: rabbit,
-      Tiger: tiger,
-      Ox: ox,
-      Rat: rat,
-      Pig: pig,
-      Dog: dog,
-      Rooster: rooster,
-      Monkey: monkey,
-      Goat: goat,
-      Horse: horse,
-      Snake: snake,
-      Dragon: dragon,
-    };
-
-    const zodiacKey = user?.zodiac as keyof ZodiacImageMap;
-    const zodiacImage = zodiacImageMap[zodiacKey] || null;
-
-
-
-   // calculaete zodiac icon
-  // const ZodiacIcon = () => {
-  //   const zodiacImageMap: ZodiacImageMap = {
-  //     Rabbit: rabbit,
-  //     Tiger: tiger,
-  //     Ox: ox,
-  //     Rat: rat,
-  //     Pig: pig,
-  //     Dog: dog,
-  //     Rooster: rooster,
-  //     Monkey: monkey,
-  //     Goat: goat,
-  //     Horse: horse,
-  //     Snake: snake,
-  //     Dragon: dragon,
-  //   };
-
-  //   const zodiacKey = user?.zodiac as keyof ZodiacImageMap;
-  //   return zodiacImageMap[zodiacKey] || null;
-  // };
+  const zodiacKey = user?.zodiac as keyof ZodiacImageMap;
+  const zodiacImage = zodiacImageMap[zodiacKey] || null;
 
   return (
     <>
@@ -172,46 +147,50 @@ export default function UserPicture() {
             className='rounded-[17px]'
           />
         )}
-        <div className='absolute bottom-2 left-5'>
+        <div className='absolute bottom-5 left-5'>
           <Text as='h1'>{`@${user?.username}`}</Text>
 
           {localProfile?.gender && (
             <Text as='h1'>{`${localProfile.gender}`}</Text>
           )}
-            <div className="w-full flex items-center">
-            <div className="mr-3 my-2 flex items-center py-2 md:py-2 px-4 rounded-3xl bg-[#1D2F2F]">
-             {horoscopeImage && (
-                <Image
-                  src={horoscopeImage}
-                  alt='horoscope'
-                  width={30}
-                  height={30}
-                  className='me-2 flex h-4 w-4 items-center text-base md:h-6 md:w-6'
-                   style={{
-                    filter: "invert(100%)",
-                  }}
-                />
+          <div className='flex w-full items-center mt-2'>
+            <div>
+              {horoscopeImage && (
+                <div className=' mr-3 flex items-center rounded-3xl bg-[#1D2F2F] px-4 p-2 md:py-2'>
+                  <Image
+                    src={horoscopeImage}
+                    alt='horoscope'
+                    width={30}
+                    height={30}
+                    className='me-2 flex h-4 w-4 items-center text-base md:h-6 md:w-6'
+                    style={{
+                      filter: 'invert(100%)',
+                    }}
+                  />
+                  <p className='font-inter me-2 text-[14px] font-semibold text-[#FFFFFF]'>
+                    {user?.horoscope}
+                  </p>
+                </div>
               )}
-              <p className="me-2 text-[14px] text-[#FFFFFF] font-semibold font-inter">
-                {user?.horoscope}
-              </p>
             </div>
-            <div className="mr-3 my-2 flex items-center py-2 md:py-2 px-4 rounded-3xl bg-[#1D2F2F]">
-             {zodiacImage && (
-                <Image
-                  src={zodiacImage}
-                  alt='zodiac'
-                  width={30}
-                  height={30}
-                  className='me-2 flex h-4 w-4 items-center text-base md:h-6 md:w-6'
-                   style={{
-                    filter: "invert(100%)",
-                  }}
-                />
+            <div>
+              {zodiacImage && (
+                <div className=' mr-3 flex items-center rounded-3xl bg-[#1D2F2F] px-4 py-2 md:py-2'>
+                  <Image
+                    src={zodiacImage}
+                    alt='zodiac'
+                    width={30}
+                    height={30}
+                    className='me-2 flex h-4 w-4 items-center text-base md:h-6 md:w-6'
+                    style={{
+                      filter: 'invert(100%)',
+                    }}
+                  />
+                  <p className='font-inter me-2 text-[14px] font-semibold text-[#FFFFFF]'>
+                    {user?.zodiac}
+                  </p>
+                </div>
               )}
-              <p className="me-2 text-[14px] text-[#FFFFFF] font-semibold font-inter">
-                {user?.zodiac}
-              </p>
             </div>
           </div>
         </div>

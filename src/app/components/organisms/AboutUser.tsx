@@ -27,7 +27,7 @@ export default function AboutUser() {
       <Card cardTitle='About' className='mt-5 p-6'>
         {aboutState == 'about' && (
           <>
-            <div className='absolute right-5 top-8 h-[18px] w-[18px]'>
+            <div className='absolute right-5 top-6 h-[18px] w-[18px]'>
               <ButtonLink
                 href='#'
                 leftIcon={PiPencilSimpleLine}

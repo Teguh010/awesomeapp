@@ -6,6 +6,7 @@ import { toast } from 'react-hot-toast';
 import { getLocalProfileFromLocalStorage } from '@/lib/helpers';
 import { getHoroscope } from '@/lib/horoscope';
 import { getZodiac } from '@/lib/zodiac';
+import { cn } from '@/lib/utils';
 import { customFormatDate } from '@/lib/helpers';
 
 import useAuthStore from '@/store/useAuthStore';
@@ -48,7 +49,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
 
   return (
     <>
-      <div className='mt-8 py-3 flex items-center gap-3 cursor-pointer'>
+      <div className='mt-8 flex cursor-pointer items-center gap-3 py-3'>
         <div className='relative h-[57px] w-[57px] overflow-hidden rounded-[17px] bg-gray-800'>
           {image ? (
             <Image
@@ -197,9 +198,25 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                   </Text>
                 </div>
 
-                <div className='bg-white-opacity-9 h-[36px] w-full flex-1 rounded-[9px]  border border-[#FFFFFF38]  p-2 px-4 text-right text-[13px]  font-medium text-white placeholder-[#FFFFFF38]'>
-                  {customFormatDate(values.birthday) || 'DD MM YYYY'}
+                <div
+                  className={cn(
+                    'bg-white-opacity-9 h-[36px] w-full flex-1 rounded-[9px] border border-[#FFFFFF38] p-2 px-4 text-right text-[13px] font-medium placeholder-[#FFFFFF38]',
+                    {
+                      'text-white':
+                        values.birthday &&
+                        !isNaN(new Date(values.birthday).getTime()),
+                      'text-[#FFFFFF38]':
+                        !values.birthday ||
+                        isNaN(new Date(values.birthday).getTime()),
+                    }
+                  )}
+                >
+                  {values.birthday &&
+                  !isNaN(new Date(values.birthday).getTime())
+                    ? customFormatDate(values.birthday)
+                    : 'DD MM YYYY'}
                 </div>
+
                 <InputField
                   ref={birthdayInputRef}
                   containerClassName='date-popup'
@@ -249,7 +266,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
               <Text
                 as='button'
                 type='submit'
-                className='absolute right-8 top-8 text-[13px] font-[500] disabled:cursor-not-allowed'
+                className='absolute right-8 top-6 text-[13px] font-[500] disabled:cursor-not-allowed'
                 variant='gradient-yellow'
                 disabled={
                   values.name == '' ||
