@@ -8,7 +8,7 @@ This project is structured and developed using Next.js 13 using react structure 
 
 [![Screenshot 2024-06-03 at 17 42 15](https://github.com/Teguh010/awesomeapp/assets/49009268/02089adc-858b-4054-bbe9-b5d222a54de6)](https://www.canva.com/design/DAGHD9a5-Xs/bC2eAD6v0M8HW6Kd5pS0Eg/view?utm_content=DAGHD9a5-Xs&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
-#### :rocket: :globe_with_meridians: <a href="https://awesomeapp-rose.vercel.app">Checkout this link to quick test the result </a> 
+#### :rocket: :globe_with_meridians: [Checkout this link to quick test the result](https://awesomeapp-rose.vercel.app) 
 
 ## Tasks :memo:
 ##### Create Mobile Webapp in Nextjs - Based on figma design :star2:
