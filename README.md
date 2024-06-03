@@ -1,12 +1,13 @@
 
+# Made With 💖 By Teguh Badrusalam 
+## YouApp Frontend Developer Recruitment Test
 
-<img width="1675" alt="Screenshot 2024-06-03 at 17 24 52" src="https://github.com/Teguh010/awesomeapp/assets/49009268/43e54a45-2d4d-40ac-8db7-6e9b2c08d37e">
+This project is structured and developed using Next.js 13 using react structure best practice and Atomic Design methodology. slicing figma design to react code with atension to detail, im proud to deliver this project to you as my submision test.
 
+#### This image show a brief look how i slicing the design to code.
 
+[<img width="1675" alt="Screenshot 2024-06-03 at 17 24 52" src="https://github.com/Teguh010/awesomeapp/assets/49009268/43e54a45-2d4d-40ac-8db7-6e9b2c08d37e">] (https://docs.microsoft.com/en-us/windows/console/setconsolemode)
 
-# YouApp Frontend Developer Recruitment Test
-
-Welcome to my submission for the YouApp Frontend Developer recruitment test. This project is structured and developed using Next.js 13 with Atomic Design methodology.
 
 ## Table of Contents
 
