@@ -46,7 +46,7 @@ export const horoscope = [
   },
   {
     start_date: '1900-12-22',
-    end_date: '1900-01-19',
+    end_date: '1901-01-19',
     name: 'Capricornus',
   },
   {
