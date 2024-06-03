@@ -8,6 +8,7 @@ This project is structured and developed using Next.js 13 using react structure 
 
 [![Screenshot 2024-06-03 at 17 42 15](https://github.com/Teguh010/awesomeapp/assets/49009268/02089adc-858b-4054-bbe9-b5d222a54de6)](https://www.canva.com/design/DAGHD9a5-Xs/bC2eAD6v0M8HW6Kd5pS0Eg/view?utm_content=DAGHD9a5-Xs&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
+#### :rocket: :globe_with_meridians: <a>Checkout this link to quick test the result </a> 
 
 ## Tasks :memo:
 ##### Create Mobile Webapp in Nextjs - Based on figma design :star2:
@@ -36,6 +37,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+npm run dev
+```
+or 
+
+```bash
 yarn dev
 ```
 
@@ -43,4 +49,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 ## Deployment :globe_with_meridians:
-:rocket: check this out [https://awesomeapp-rose.vercel.app](https://awesomeapp-rose.vercel.app/register) 
+:rocket: check this out [https://awesomeapp-rose.vercel.app](https://awesomeapp-rose.vercel.app) 
