@@ -1,4 +1,9 @@
 export const zodiac = [
+   {
+    start_date: '2024-02-23',
+    end_date: '2025-02-09',
+    name: 'Dragon',
+  },
   {
     start_date: '2023-01-22',
     end_date: '2024-02-09',
