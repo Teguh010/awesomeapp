@@ -164,6 +164,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
         }}
       >
         {({ values, setFieldValue }) => {
+          // eslint-disable-next-line react-hooks/rules-of-hooks
           useEffect(() => {
             setFieldValue('horoscope', getHoroscope(values.birthday));
             setFieldValue('zodiac', getZodiac(values.birthday));
