@@ -6,22 +6,16 @@ This project is structured and developed using Next.js 13 using react structure 
 
 #### This image show a brief look how i slicing the design to code.
 
-[![Screenshot 2024-06-03 at 17 24 52](https://github.com/Teguh010/awesomeapp/assets/49009268/43e54a45-2d4d-40ac-8db7-6e9b2c08d37e)](https://www.canva.com/design/DAGHD9a5-Xs/bC2eAD6v0M8HW6Kd5pS0Eg/view?utm_content=DAGHD9a5-Xs&utm_campaign=designshare&utm_medium=link&utm_source=editor)
-
-<img width="1680" alt="Screenshot 2024-06-03 at 17 42 15" src="https://github.com/Teguh010/awesomeapp/assets/49009268/02089adc-858b-4054-bbe9-b5d222a54de6">
+[![Screenshot 2024-06-03 at 17 42 15](https://github.com/Teguh010/awesomeapp/assets/49009268/02089adc-858b-4054-bbe9-b5d222a54de6)](https://www.canva.com/design/DAGHD9a5-Xs/bC2eAD6v0M8HW6Kd5pS0Eg/view?utm_content=DAGHD9a5-Xs&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 
-## Table of Contents
+## Tasks :memo:
+##### Create Mobile Webapp in Nextjs - Based on figma design :star2:
+Create using Nextjs 13 with app router based on design :white_check_mark:
+Implement tailwind css custom and modular configuration :white_check_mark: 
+ Usage of good design patterns & react architecture patterns :white_check_mark: 
+Build and Connect with API :white_check_mark: 
 
-1. [Introduction](#introduction)
-2. [Atomic Design Methodology](#atomic-design-methodology)
-3. [Getting Started](#getting-started)
-4. [Tasks](#tasks)
-5. [Deployment](#deployment)
-
-## Introduction
-
-This project showcases a frontend implementation for YouApp using the principles of Atomic Design. Atomic Design is a methodology for creating design systems that decompose the user interface into smaller, reusable components.
 
 ## Atomic Design Methodology
 
@@ -48,13 +42,5 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-## Tasks
-Create Mobile Webapp in Nextjs - Open the figma link below:
-- :heavy_check_mark: Create using Nextjs 13 with app router based on design.
-- :heavy_check_mark: Implement tailwind css custom and modular configuration
-- :heavy_check_mark: Usage of good design patterns & react architecture patterns.
-- :heavy_check_mark: Build and Connect with API
-
-
-## Deployment
-Open [https://awesomeapp-rose.vercel.app](https://awesomeapp-rose.vercel.app/register) with your browser to see the result.
+## Deployment :globe_with_meridians:
+:rocket: check this out [https://awesomeapp-rose.vercel.app](https://awesomeapp-rose.vercel.app/register) 
