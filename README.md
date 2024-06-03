@@ -12,10 +12,10 @@ This project is structured and developed using Next.js 13 using react structure 
 
 ## Tasks :memo:
 ##### Create Mobile Webapp in Nextjs - Based on figma design :star2:
-Create using Nextjs 13 with app router based on design :white_check_mark:
-Implement tailwind css custom and modular configuration :white_check_mark: 
- Usage of good design patterns & react architecture patterns :white_check_mark: 
-Build and Connect with API :white_check_mark: 
+- :one: Create using Nextjs 13 with app router based on design :white_check_mark:
+- :two: Implement tailwind css custom and modular configuration :white_check_mark: 
+- :three: Usage of good design patterns & react architecture patterns :white_check_mark: 
+- :four: Build and Connect with API :white_check_mark: 
 
 
 ## Atomic Design Methodology
