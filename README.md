@@ -1,3 +1,9 @@
+
+
+<img width="1675" alt="Screenshot 2024-06-03 at 17 24 52" src="https://github.com/Teguh010/awesomeapp/assets/49009268/43e54a45-2d4d-40ac-8db7-6e9b2c08d37e">
+
+
+
 # YouApp Frontend Developer Recruitment Test
 
 Welcome to my submission for the YouApp Frontend Developer recruitment test. This project is structured and developed using Next.js 13 with Atomic Design methodology.
