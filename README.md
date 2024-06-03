@@ -6,7 +6,7 @@ This project is structured and developed using Next.js 13 using react structure 
 
 #### This image show a brief look how i slicing the design to code.
 
-[![Screenshot 2024-06-03 at 17 24 52](https://github.com/Teguh010/awesomeapp/assets/49009268/43e54a45-2d4d-40ac-8db7-6e9b2c08d37e)](https://www.canva.com/design/DAGHD9a5-Xs/7R85eXWhBsr59PmUue23bg/edit?utm_content=DAGHD9a5-Xs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+[![Screenshot 2024-06-03 at 17 24 52](https://github.com/Teguh010/awesomeapp/assets/49009268/43e54a45-2d4d-40ac-8db7-6e9b2c08d37e)](https://www.canva.com/design/DAGHD9a5-Xs/bC2eAD6v0M8HW6Kd5pS0Eg/view?utm_content=DAGHD9a5-Xs&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 
 
