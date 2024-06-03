@@ -71,7 +71,6 @@ export default function AboutUser() {
                     </p>
                     <p className='text-sm font-medium text-[#FFFFFF]'>
                       {user?.height ? user?.height : ''}
-                      {localProfile != null ? localProfile.height_unit : ''}
                     </p>
                   </div>
                   <div className=' flex justify-start'>
@@ -80,7 +79,6 @@ export default function AboutUser() {
                     </p>
                     <p className='text-sm font-medium text-[#FFFFFF]'>
                       {user?.weight ? user?.weight : ''}
-                      {localProfile != null ? localProfile.weight_unit : ''}
                     </p>
                   </div>
                 </div>

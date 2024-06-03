@@ -75,7 +75,7 @@ function FormInterest() {
         <Text className='bg-custom-text-gradient-1 bg-clip-text text-transparent'>
           Tell everyone about yourself
         </Text>
-        <Text variant='base' className='text-[20px]'>
+        <Text variant='base' className='text-[20px] pt-[10px]'>
           What interests you?
         </Text>
         <div className='mt-8 text-[12px]'>

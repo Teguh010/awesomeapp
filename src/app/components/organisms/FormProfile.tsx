@@ -21,6 +21,7 @@ import { updateProfileService } from '@/services/update-profile-service';
 type FormProfileProps = {
   handleBack(): void;
 };
+
 export default function FormProfile({ handleBack }: FormProfileProps) {
   const login = useAuthStore.useLogin();
   const user = useAuthStore.useUser();
@@ -44,8 +45,14 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
       reader.readAsDataURL(e.target.files[0]);
     }
   };
+
   const profileInputRef = useRef<HTMLInputElement>(null);
   const birthdayInputRef = useRef<HTMLInputElement>(null);
+
+  const restrictNonNumericInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    e.target.value = value.replace(/[^0-9]/g, '');
+  };
 
   return (
     <>
@@ -92,7 +99,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
           birthday: user?.birthday ?? '',
           horoscope: user?.horoscope ?? '',
           zodiac: user?.zodiac ?? '',
-          weight:
+           weight:
             user?.weight != undefined
               ? `${user.weight} ${
                   localProfile != null ? localProfile.weight_unit : ''
@@ -113,50 +120,50 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
             values.weight == ''
           ) {
             toast.error('Please complete your profile');
-          }
-          if (user?.name == undefined) {
-            const res = await createProfileService(
-              values.name,
-              values.gender,
-              values.birthday,
-              values.horoscope,
-              values.zodiac,
-              values.weight,
-              values.height,
-              user?.interests ?? [],
-              image ?? undefined
-            );
-            if (res.data.isSuccess) {
-              handleBack();
-              if (user) {
-                const profile = await getProfileService();
-                login({ ...user, ...profile.data.data });
-              }
-            }
           } else {
-            const res = await updateProfileService(
-              values.name,
-              values.gender,
-              values.birthday,
-              values.horoscope,
-              values.zodiac,
-              values.weight,
-              values.height,
-              user?.interests ?? [],
-              image ?? undefined
-            );
-            if (res.data.isSuccess) {
-              handleBack();
-              if (user) {
-                const profile = await getProfileService();
-                login({ ...user, ...profile.data.data });
+            if (user?.name == undefined) {
+              const res = await createProfileService(
+                values.name,
+                values.gender,
+                values.birthday,
+                values.horoscope,
+                values.zodiac,
+                values.weight,
+                values.height,
+                user?.interests ?? [],
+                image ?? undefined
+              );
+              if (res.data.isSuccess) {
+                handleBack();
+                if (user) {
+                  const profile = await getProfileService();
+                  login({ ...user, ...profile.data.data });
+                }
+              }
+            } else {
+              const res = await updateProfileService(
+                values.name,
+                values.gender,
+                values.birthday,
+                values.horoscope,
+                values.zodiac,
+                values.weight,
+                values.height,
+                user?.interests ?? [],
+                image ?? undefined
+              );
+              if (res.data.isSuccess) {
+                handleBack();
+                if (user) {
+                  const profile = await getProfileService();
+                  login({ ...user, ...profile.data.data });
+                }
               }
             }
           }
         }}
       >
         {({ values, setFieldValue }) => {
-          // eslint-disable-next-line react-hooks/rules-of-hooks
           useEffect(() => {
             setFieldValue('horoscope', getHoroscope(values.birthday));
             setFieldValue('zodiac', getZodiac(values.birthday));
@@ -189,10 +196,10 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
               />
               {/* Hide the input field */}
               <div
-                className='birthday-section mt-3   flex items-center justify-between'
+                className='birthday-section mt-3 flex items-center justify-between'
                 onClick={handleBirthdaySectionClick}
               >
-                <div className='block  w-1/3'>
+                <div className='block w-1/3'>
                   <Text as='label' variant='label' className='mr-1'>
                     Birthday:
                   </Text>
@@ -250,17 +257,25 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 containerClassName='mt-3'
                 className='h-[36px] w-full p-[18px] text-right text-white'
                 name='height'
-                placeholder='Add Height'
+                placeholder='Add Height ex: 170'
                 label='Height:'
                 type='text'
+                onChange={(e) => {
+                  restrictNonNumericInput(e);
+                  setFieldValue('height', e.target.value);
+                }}
               />
               <InputField
                 containerClassName='mt-3'
                 className='h-[36px] w-full p-[18px] text-right text-white'
                 name='weight'
-                placeholder='Add Weight'
+                placeholder='Add Weight ex: 60'
                 label='Weight:'
                 type='text'
+                onChange={(e) => {
+                  restrictNonNumericInput(e);
+                  setFieldValue('weight', e.target.value);
+                }}
               />
 
               <Text
