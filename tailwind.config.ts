@@ -12,6 +12,7 @@ const config: Config = {
       colors: {
         'custom-bg-color': '#09141A',
         'custom-bg-card-color': '#0E191F',
+        'custom-main-card-color': 'rgba(22, 35, 41, 1)',
         'button-gradient-start': '#62CDCB',
         'button-gradient-end': '#4599DB',
         'white-opacity-9': 'rgba(255, 255, 255, 0.09)',

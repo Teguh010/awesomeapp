@@ -137,7 +137,7 @@ export default function UserPicture() {
 
   return (
     <>
-      <Card cardTitle={null} className='mt-5 h-[190px]'>
+      <Card cardTitle={null} className='bg-custom-main-card-color mt-5 h-[190px]'>
         {localProfile?.base64profile && (
           <Image
             src={localProfile.base64profile}
