@@ -10,8 +10,8 @@ export function getHoroscope(dateString: string): string | null {
     end_date: new Date(`${year}-${h.end_date.slice(5)}`),
   }));
 
-  // Find Capricornus and handle the year transition
-  const capricorn = adjustedHoroscopes.find(h => h.name === 'Capricornus');
+  // Find Capricorn and handle the year transition
+  const capricorn = adjustedHoroscopes.find(h => h.name === 'Capricorn');
   if (capricorn) {
     capricorn.end_date = new Date(`${year + 1}-01-19`);
   }
