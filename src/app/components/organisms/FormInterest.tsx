@@ -29,8 +29,8 @@ function FormInterest() {
       user?.birthday ?? '',
       user?.horoscope ?? '',
       user?.zodiac ?? '',
-      user?.weight ?? '',
-      user?.height ?? '',
+      (user?.weight ?? '').toString(),
+      (user?.height ?? '').toString(),
       interests,
       undefined
     );
