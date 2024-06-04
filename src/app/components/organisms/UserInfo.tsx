@@ -31,7 +31,7 @@ function UserInfo() {
         <div className='absolute left-1/2 -translate-x-1/2 transform text-center'>
           <Text as='h1' className='text-center'>{`@${user?.username}`}</Text>
         </div>
-        <div>
+        <div className='relative'>
           <button
             type='button'
             className=' m-0 w-1/3 p-0 text-end font-normal text-[#FFFFFF] outline-none md:w-1/2'
@@ -43,7 +43,7 @@ function UserInfo() {
             />
           </button>
           {showDropdown && (
-            <div className='z-99 absolute right-3 mt-0 origin-top-right rounded-lg bg-[#162329] py-1 outline-none'>
+            <div className='z-99 absolute right-0 mt-0 origin-top-right rounded-lg bg-[#162329] py-1 outline-none'>
               <Logout />
             </div>
           )}
