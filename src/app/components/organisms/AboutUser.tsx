@@ -70,7 +70,7 @@ export default function AboutUser() {
                       Height:{' '}
                     </p>
                     <p className='text-sm font-medium text-[#FFFFFF]'>
-                      {user?.height ? user?.height : ''}
+                      {user?.height ? user?.height : ''} cm
                     </p>
                   </div>
                   <div className=' flex justify-start'>
@@ -78,7 +78,7 @@ export default function AboutUser() {
                       Weight:{' '}
                     </p>
                     <p className='text-sm font-medium text-[#FFFFFF]'>
-                      {user?.weight ? user?.weight : ''}
+                      {user?.weight ? user?.weight : ''} kg
                     </p>
                   </div>
                 </div>

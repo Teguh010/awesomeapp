@@ -2,7 +2,6 @@ import { toast } from 'react-hot-toast';
 
 import { localAxios } from '@/lib/axios';
 import {
-  extractANumberAndAUnit,
   getFromLocalStorage,
   setLocalProfileToLocalStorage,
 } from '@/lib/helpers';
@@ -20,15 +19,11 @@ export const updateProfileService = async (
 ) => {
   const token = getFromLocalStorage('access_token');
 
-  const extractHeight = extractANumberAndAUnit(height);
-  const heightValue = extractHeight?.value ? Number(extractHeight.value) : 0;
-  const heightUnit = extractHeight?.unit;
-  setLocalProfileToLocalStorage('height_unit', heightUnit ?? '');
+  const heightValue = Number(height)
+  setLocalProfileToLocalStorage('height_unit', height ?? '');
 
-  const extractWeight = extractANumberAndAUnit(weight);
-  const weightValue = extractWeight?.value ? Number(extractWeight.value) : 0;
-  const weightUnit = extractWeight?.unit;
-  setLocalProfileToLocalStorage('weight_unit', weightUnit ?? '');
+  const weightValue = Number(weight)
+  setLocalProfileToLocalStorage('weight_unit', weight ?? '');
 
   if (gender) {
     setLocalProfileToLocalStorage('gender', gender);

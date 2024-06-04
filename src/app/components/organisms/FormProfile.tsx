@@ -31,6 +31,13 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
     localProfile?.base64profile ?? null
   );
 
+  const [heightValue, setHeightValue] = useState(
+    user?.height !== undefined ? user.height.toString() : ''
+  );
+  const [weightValue, setWeightValue] = useState(
+    user?.weight !== undefined ? user.weight.toString() : ''
+  );
+
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const reader = new FileReader();
@@ -52,6 +59,24 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
   const restrictNonNumericInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     e.target.value = value.replace(/[^0-9]/g, '');
+  };
+
+  const handleHeightChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    setFieldValue: any
+  ) => {
+    const value = e.target.value.replace(/[^0-9]/g, '');
+    setHeightValue(value);
+    setFieldValue('height', value);
+  };
+
+  const handleWeightChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    setFieldValue: any
+  ) => {
+    const value = e.target.value.replace(/[^0-9]/g, '');
+    setWeightValue(value);
+    setFieldValue('weight', value);
   };
 
   return (
@@ -99,18 +124,8 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
           birthday: user?.birthday ?? '',
           horoscope: user?.horoscope ?? '',
           zodiac: user?.zodiac ?? '',
-           weight:
-            user?.weight != undefined
-              ? `${user.weight} ${
-                  localProfile != null ? localProfile.weight_unit : ''
-                }`
-              : '',
-          height:
-            user?.height != undefined
-              ? `${user.height} ${
-                  localProfile != null ? localProfile.height_unit : ''
-                }`
-              : '',
+          weight: user?.weight != undefined ? `${user.weight}` : '',
+          height: user?.height != undefined ? `${user.height}` : '',
         }}
         onSubmit={async (values) => {
           if (
@@ -121,6 +136,9 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
           ) {
             toast.error('Please complete your profile');
           } else {
+            const weight = parseInt(values.weight, 10);
+            const height = parseInt(values.height, 10);
+
             if (user?.name == undefined) {
               const res = await createProfileService(
                 values.name,
@@ -128,8 +146,8 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 values.birthday,
                 values.horoscope,
                 values.zodiac,
-                values.weight,
-                values.height,
+                weight,
+                height,
                 user?.interests ?? [],
                 image ?? undefined
               );
@@ -147,8 +165,8 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 values.birthday,
                 values.horoscope,
                 values.zodiac,
-                values.weight,
-                values.height,
+                weight,
+                height,
                 user?.interests ?? [],
                 image ?? undefined
               );
@@ -195,7 +213,6 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                   { label: 'Female', value: 'Female' },
                 ]}
               />
-              {/* Hide the input field */}
               <div
                 className='birthday-section mt-3 flex items-center justify-between'
                 onClick={handleBirthdaySectionClick}
@@ -254,30 +271,44 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 type='text'
                 disabled={true}
               />
-              <InputField
-                containerClassName='mt-3'
-                className='h-[36px] w-full p-[18px] text-right text-white'
-                name='height'
-                placeholder='Add Height ex: 170'
-                label='Height:'
-                type='text'
-                onChange={(e) => {
-                  restrictNonNumericInput(e);
-                  setFieldValue('height', e.target.value);
-                }}
-              />
-              <InputField
-                containerClassName='mt-3'
-                className='h-[36px] w-full p-[18px] text-right text-white'
-                name='weight'
-                placeholder='Add Weight ex: 60'
-                label='Weight:'
-                type='text'
-                onChange={(e) => {
-                  restrictNonNumericInput(e);
-                  setFieldValue('weight', e.target.value);
-                }}
-              />
+              <div className='relative mt-3'>
+                <InputField
+                  containerClassName='flex-grow'
+                  className={`h-[36px] w-full p-[18px] text-right text-white ${
+                    heightValue ? 'pr-[40px]' : ''
+                  }`}
+                  name='height'
+                  placeholder='Add Height ex: 170'
+                  label='Height:'
+                  type='text'
+                  value={heightValue}
+                  onChange={(e) => handleHeightChange(e, setFieldValue)}
+                />
+                {heightValue && (
+                  <span className='absolute right-[10px] top-1/2 -translate-y-1/2 transform text-white'>
+                    kg
+                  </span>
+                )}
+              </div>
+              <div className='relative mt-3'>
+                <InputField
+                  containerClassName='flex-grow'
+                  className={`h-[36px] w-full p-[18px] text-right text-white ${
+                    weightValue ? 'pr-[40px]' : ''
+                  }`}
+                  name='weight'
+                  placeholder='Add Weight ex: 60'
+                  label='Weight:'
+                  type='text'
+                  value={weightValue}
+                  onChange={(e) => handleWeightChange(e, setFieldValue)}
+                />
+                {weightValue && (
+                  <span className='absolute right-[10px] top-1/2 -translate-y-1/2 transform text-white'>
+                    kg
+                  </span>
+                )}
+              </div>
 
               <Text
                 as='button'
