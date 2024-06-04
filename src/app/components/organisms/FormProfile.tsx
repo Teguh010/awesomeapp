@@ -316,12 +316,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 type='submit'
                 className='absolute right-8 top-6 text-[13px] font-[500] disabled:cursor-not-allowed'
                 variant='gradient-yellow'
-                disabled={
-                  values.name == '' ||
-                  values.birthday == '' ||
-                  values.height == '' ||
-                  values.weight == ''
-                }
+                
               >
                 Save & Update
               </Text>
