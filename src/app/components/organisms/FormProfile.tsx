@@ -32,10 +32,10 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
   );
 
   const [heightValue, setHeightValue] = useState(
-    user?.height !== undefined ? user.height.toString() : ''
+    user?.height !== undefined ? user?.height : ''
   );
   const [weightValue, setWeightValue] = useState(
-    user?.weight !== undefined ? user.weight.toString() : ''
+    user?.weight !== undefined ? user?.weight : ''
   );
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {

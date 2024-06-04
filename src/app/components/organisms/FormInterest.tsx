@@ -29,12 +29,8 @@ function FormInterest() {
       user?.birthday ?? '',
       user?.horoscope ?? '',
       user?.zodiac ?? '',
-      user?.weight && localProfile != null
-        ? `${user.weight} ${localProfile.weight_unit}`
-        : '',
-      user?.height && localProfile != null
-        ? `${user.height} ${localProfile.height_unit}`
-        : '',
+      user?.weight ?? '',
+      user?.height ?? '',
       interests,
       undefined
     );
