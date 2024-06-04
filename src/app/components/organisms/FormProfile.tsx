@@ -269,7 +269,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                   containerClassName='flex-grow'
                   className={`h-[36px] w-full p-[18px] text-right ${
                     heightValue && heightValue !== '0'
-                      ? 'pr-[40px] text-white'
+                      ? 'pr-[45px] text-white'
                       : 'text-[#FFFFFF38]'
                   }`}
                   name='height'
@@ -280,7 +280,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                   onChange={(e) => handleHeightChange(e, setFieldValue)}
                 />
                 {heightValue && heightValue !== 0 ? (
-                  <span className='absolute right-[10px] top-1/2 -translate-y-1/2 transform text-white'>
+                  <span className='absolute right-[20px] top-1/2 -translate-y-1/2 transform text-white text-[14px]'>
                     cm
                   </span>
                 ) : (
@@ -292,7 +292,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                   containerClassName='flex-grow'
                   className={`h-[36px] w-full p-[18px] text-right ${
                     weightValue && weightValue !== '0'
-                      ? 'pr-[40px] text-white'
+                      ? 'pr-[45px] text-white'
                       : 'text-[#FFFFFF38]'
                   }`}
                   name='weight'
@@ -303,7 +303,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                   onChange={(e) => handleWeightChange(e, setFieldValue)}
                 />
                 {weightValue && weightValue !== 0 ? (
-                  <span className='absolute right-[10px] top-1/2 -translate-y-1/2 transform text-white'>
+                  <span className='absolute right-[20px] top-1/2 -translate-y-1/2 transform text-white text-[14px]'>
                     kg
                   </span>
                 ) : (
