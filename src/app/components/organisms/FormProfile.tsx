@@ -136,9 +136,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
           ) {
             toast.error('Please complete your profile');
           } else {
-            const weight = parseInt(values.weight, 10);
-            const height = parseInt(values.height, 10);
-
+    
             if (user?.name == undefined) {
               const res = await createProfileService(
                 values.name,
@@ -146,8 +144,8 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 values.birthday,
                 values.horoscope,
                 values.zodiac,
-                weight,
-                height,
+                values.weight,
+                values.height,
                 user?.interests ?? [],
                 image ?? undefined
               );
@@ -165,8 +163,8 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 values.birthday,
                 values.horoscope,
                 values.zodiac,
-                weight,
-                height,
+                values.weight,
+                values.height,
                 user?.interests ?? [],
                 image ?? undefined
               );
