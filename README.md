@@ -47,4 +47,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 ## :globe_with_meridians: Deployment 
-:rocket: :rocket: [click this link to have a brieve review for this awesome app ! ](https://awesomeapp-rose.vercel.app) [https://awesomeapp-rose.vercel.app](https://awesomeapp-rose.vercel.app) 
+:rocket: :rocket: [click this link to have a brieve review for this awesome app ! ](https://awesomeapp-rose.vercel.app)
+[https://awesomeapp-rose.vercel.app](https://awesomeapp-rose.vercel.app) 
