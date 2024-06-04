@@ -4,7 +4,7 @@
 
 This project is structured and developed with Next.js 13 using react structure best practice and Atomic Design methodology. slicing figma design to react code with atension to detail, im proud to deliver this project to you as my submision test.
 
-#### :eye: This image show a brief look how i slicing the design to code
+#### :eye: This image show a brief look how i slicing the design to code, click it to see full screen
 
 [![Screenshot 2024-06-03 at 17 42 15](https://github.com/Teguh010/awesomeapp/assets/49009268/02089adc-858b-4054-bbe9-b5d222a54de6)](https://www.canva.com/design/DAGHD9a5-Xs/bC2eAD6v0M8HW6Kd5pS0Eg/view?utm_content=DAGHD9a5-Xs&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
