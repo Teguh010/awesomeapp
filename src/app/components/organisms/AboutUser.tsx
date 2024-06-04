@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  getLocalProfileFromLocalStorage,
   calculateAge,
   formatDate,
 } from '@/lib/helpers';
@@ -15,11 +14,9 @@ import EditIcon from '@/public/edit.svg';
 export default function AboutUser() {
   const [aboutState, setAboutState] = useState<'about' | 'form'>('about');
   const user = useAuthStore.useUser();
-  const localProfile = getLocalProfileFromLocalStorage();
 
   const age = user?.birthday ? calculateAge(user.birthday) : null;
   const formattedBirthday = user?.birthday ? formatDate(user.birthday) : '';
-
   return (
     <>
       <Card cardTitle='About' className='mt-5 p-6'>
@@ -33,7 +30,7 @@ export default function AboutUser() {
                 onClick={() => setAboutState('form')}
               />
             </div>
-            {user?.name == undefined ? (
+            {user?.name == undefined  || user?.horoscope == "Error" ? (
               <Text variant='secondary' className='mt-8'>
                 Add in your your to help others know you better
               </Text>
@@ -45,7 +42,7 @@ export default function AboutUser() {
                       Birthday:{' '}
                     </p>
                     <p className='text-sm font-medium text-[#FFFFFF]'>
-                      {formattedBirthday} {age !== null ? `( Age ${age})` : ''}
+                      {formattedBirthday} {age !== null ? `( Age ${age})` : '--'}
                     </p>
                   </div>
 
@@ -54,7 +51,7 @@ export default function AboutUser() {
                       Horoscope:{' '}
                     </p>
                     <p className='text-sm font-medium text-[#FFFFFF]'>
-                      {user?.horoscope ? user?.horoscope : ''}
+                      {user?.horoscope && user?.horoscope !== "Error" ? user?.horoscope : '--'}
                     </p>
                   </div>
                   <div className=' flex justify-start'>
@@ -62,7 +59,7 @@ export default function AboutUser() {
                       Zodiac:{' '}
                     </p>
                     <p className='text-sm font-medium text-[#FFFFFF]'>
-                      {user?.zodiac ? user?.zodiac : ''}
+                      {user?.zodiac ? user?.zodiac : '--'}
                     </p>
                   </div>
                   <div className=' flex justify-start'>
@@ -70,15 +67,15 @@ export default function AboutUser() {
                       Height:{' '}
                     </p>
                     <p className='text-sm font-medium text-[#FFFFFF]'>
-                      {user?.height ? user?.height : ''} cm
+                      {user?.height ? user?.height : ''} {user?.height && user?.height !== 0 ? 'cm' : '--' }
                     </p>
                   </div>
                   <div className=' flex justify-start'>
                     <p className='font-inter mr-3 text-sm font-medium text-[#FFFFFF4D]'>
-                      Weight:{' '}
+                      Weight:{' '} 
                     </p>
                     <p className='text-sm font-medium text-[#FFFFFF]'>
-                      {user?.weight ? user?.weight : ''} kg
+                      {user?.weight ? user?.weight : ''} {user?.weight && user?.weight !== 0 ? 'kg' : '--' }
                     </p>
                   </div>
                 </div>

@@ -56,11 +56,6 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
   const profileInputRef = useRef<HTMLInputElement>(null);
   const birthdayInputRef = useRef<HTMLInputElement>(null);
 
-  const restrictNonNumericInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    e.target.value = value.replace(/[^0-9]/g, '');
-  };
-
   const handleHeightChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     setFieldValue: any
@@ -94,7 +89,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
           ) : (
             <div className='flex h-full items-center justify-center '>
               <Text
-                as='icon'
+                as='p'
                 className=' pb-2 text-[50px] font-[200]'
                 variant='gradient-yellow'
               >
@@ -136,7 +131,6 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
           ) {
             toast.error('Please complete your profile');
           } else {
-    
             if (user?.name == undefined) {
               const res = await createProfileService(
                 values.name,
@@ -258,6 +252,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 placeholder='--'
                 label='Horoscope:'
                 type='text'
+                value={values.horoscope !== 'Error' ? values.horoscope : ''}
                 disabled={true}
               />
               <InputField
@@ -272,39 +267,47 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
               <div className='relative mt-3'>
                 <InputField
                   containerClassName='flex-grow'
-                  className={`h-[36px] w-full p-[18px] text-right text-white ${
-                    heightValue ? 'pr-[40px]' : ''
+                  className={`h-[36px] w-full p-[18px] text-right ${
+                    heightValue && heightValue !== '0'
+                      ? 'pr-[40px] text-white'
+                      : 'text-[#FFFFFF38]'
                   }`}
                   name='height'
                   placeholder='Add Height ex: 170'
                   label='Height:'
                   type='text'
-                  value={heightValue}
+                  value={heightValue && heightValue !== '0' ? heightValue : ''}
                   onChange={(e) => handleHeightChange(e, setFieldValue)}
                 />
-                {heightValue && (
+                {heightValue && heightValue !== 0 ? (
                   <span className='absolute right-[10px] top-1/2 -translate-y-1/2 transform text-white'>
                     cm
                   </span>
+                ) : (
+                  ''
                 )}
               </div>
               <div className='relative mt-3'>
                 <InputField
                   containerClassName='flex-grow'
-                  className={`h-[36px] w-full p-[18px] text-right text-white ${
-                    weightValue ? 'pr-[40px]' : ''
+                  className={`h-[36px] w-full p-[18px] text-right ${
+                    weightValue && weightValue !== '0'
+                      ? 'pr-[40px] text-white'
+                      : 'text-[#FFFFFF38]'
                   }`}
                   name='weight'
                   placeholder='Add Weight ex: 60'
                   label='Weight:'
                   type='text'
-                  value={weightValue}
+                  value={weightValue && weightValue !== '0' ? weightValue : ''}
                   onChange={(e) => handleWeightChange(e, setFieldValue)}
                 />
-                {weightValue && (
+                {weightValue && weightValue !== 0 ? (
                   <span className='absolute right-[10px] top-1/2 -translate-y-1/2 transform text-white'>
                     kg
                   </span>
+                ) : (
+                  ''
                 )}
               </div>
 
