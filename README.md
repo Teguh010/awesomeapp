@@ -22,7 +22,7 @@ This project is structured and developed with Next.js 13 using react structure b
 
 - :white_check_mark: Pixel-Perfect slicing from figma to next.js  with clean code
 - :white_check_mark:  Implement react best practice for code structure and design pattren with atomic design methodology
-- :white_check_mark:  Best practice funtion for API handling
+- :white_check_mark:  Best practice function for API handling
 - :white_check_mark: Informative success and error notification
 - :white_check_mark: Tested stable in production mode
 
