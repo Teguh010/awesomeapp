@@ -284,7 +284,7 @@ export default function FormProfile({ handleBack }: FormProfileProps) {
                 />
                 {heightValue && (
                   <span className='absolute right-[10px] top-1/2 -translate-y-1/2 transform text-white'>
-                    kg
+                    cm
                   </span>
                 )}
               </div>
